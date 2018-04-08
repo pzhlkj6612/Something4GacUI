@@ -14,12 +14,16 @@ Remove all x64 Platform Configurations.
 
 ```XML
 <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-	<ConfigurationType>StaticLibrary</ConfigurationType>
-	<CharacterSet>Unicode</CharacterSet>
+-	<ConfigurationType>Application</ConfigurationType>
++	<ConfigurationType>StaticLibrary</ConfigurationType>
+-   <CharacterSet>MultiByte</CharacterSet>
++	<CharacterSet>Unicode</CharacterSet>
 </PropertyGroup>
 <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-	<ConfigurationType>StaticLibrary</ConfigurationType>
-	<CharacterSet>Unicode</CharacterSet>
+-	<ConfigurationType>Application</ConfigurationType>
++	<ConfigurationType>StaticLibrary</ConfigurationType>
+-   <CharacterSet>MultiByte</CharacterSet>
++	<CharacterSet>Unicode</CharacterSet>
 </PropertyGroup>
 ```
 
@@ -28,21 +32,23 @@ Remove all x64 Platform Configurations.
 ```XML
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 	<ClCompile>
-		<PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
-		<AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-		<AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
++		<PreprocessorDefinitions>WIN32;_LIB;_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
++		<AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++		<AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
 	</ClCompile>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 	<ClCompile>
-		<PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
-		<AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-		<AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
++		<PreprocessorDefinitions>WIN32;_LIB;NDEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
++		<AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++		<AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
 	</ClCompile>
 </ItemDefinitionGroup>
 ```
 
 ```$(ProjectDir)Import```: The folder where GacUILite's files exist.
+
+<br/>
 
 ### For User Project
 
@@ -56,10 +62,12 @@ Remove all x64 Platform Configurations.
 
 ```XML
 <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-	<CharacterSet>Unicode</CharacterSet>
+-   <CharacterSet>MultiByte</CharacterSet>
++	<CharacterSet>Unicode</CharacterSet>
 </PropertyGroup>
 <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-	<CharacterSet>Unicode</CharacterSet>
+-   <CharacterSet>MultiByte</CharacterSet>
++	<CharacterSet>Unicode</CharacterSet>
 </PropertyGroup>
 ```
 
@@ -67,32 +75,39 @@ Remove all x64 Platform Configurations.
 
 ```XML
 <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
++	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
 </PropertyGroup>
 <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
++	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
++   <LinkIncremental>false</LinkIncremental>
 </PropertyGroup>
 ```
 
 ```$(ProjectDir)..\GacUILite\Import```: The folder where GacUILite's files exist.
+
+```LinkIncremental```: [-INCREMENTAL (Link Incrementally) | Microsoft Docs](https://docs.microsoft.com/en-us/cpp/build/reference/incremental-link-incrementally)
 
 * C/C++
 
 ```XML
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 	<ClCompile>
-		<PreprocessorDefinitions>_DEBUG;VCZH_DEBUG_NO_REFLECTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++		<PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
 	</ClCompile>
 	<Link>
-		<SubSystem>Windows</SubSystem>
++		<SubSystem>Windows</SubSystem>
 	</Link>
 </ItemDefinitionGroup>
 <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
 	<ClCompile>
-		<PreprocessorDefinitions>NDEBUG;VCZH_DEBUG_NO_REFLECTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
++		<PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
 	</ClCompile>
 	<Link>
-		<SubSystem>Windows</SubSystem>
++		<SubSystem>Windows</SubSystem>
 	</Link>
 </ItemDefinitionGroup>
 ```
+
+Some unused ref:
+
+* [VC项目配置基础 - CSDN博客](https://blog.csdn.net/phunxm/article/details/5082488)
