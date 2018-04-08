@@ -5,4 +5,5 @@ Let's learn [GacUI library 0.9.5.0](https://github.com/vczh-libraries/Release/re
 <br/>
 
 * [VC++ Project's Configurations](vcxproj-conf.md)
+* [GacGen and PowerShell Instructions](GacGen-PowerShell-instruction.md)
 * Examples
