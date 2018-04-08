@@ -2,13 +2,13 @@
 
 This is just a configuration that works for me.
 
-#### For GacUILite
+### For GacUILite Library Project
 
-###### Firstly
+##### Firstly
 
 Remove all x64 Platform Configurations.
 
-###### Then
+##### Then
 
 * General
 
@@ -44,13 +44,13 @@ Remove all x64 Platform Configurations.
 
 ```$(ProjectDir)Import```: The folder where GacUILite's files exist.
 
-#### For User
+### For User Project
 
-###### Firstly
+##### Firstly
 
 Remove all x64 Platform Configurations.
 
-###### Then
+##### Then
 
 * General
 
@@ -63,4 +63,36 @@ Remove all x64 Platform Configurations.
 </PropertyGroup>
 ```
 
-**Not completed**
+* VC++ Directories
+
+```XML
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
+</PropertyGroup>
+<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
+</PropertyGroup>
+```
+
+```$(ProjectDir)..\GacUILite\Import```: The folder where GacUILite's files exist.
+
+* C/C++
+
+```XML
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+	<ClCompile>
+		<PreprocessorDefinitions>_DEBUG;VCZH_DEBUG_NO_REFLECTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	</ClCompile>
+	<Link>
+		<SubSystem>Windows</SubSystem>
+	</Link>
+</ItemDefinitionGroup>
+<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+	<ClCompile>
+		<PreprocessorDefinitions>NDEBUG;VCZH_DEBUG_NO_REFLECTION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+	</ClCompile>
+	<Link>
+		<SubSystem>Windows</SubSystem>
+	</Link>
+</ItemDefinitionGroup>
+```
