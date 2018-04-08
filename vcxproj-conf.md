@@ -13,37 +13,37 @@ Remove all x64 Platform Configurations.
 * General
 
 ```XML
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
--	<ConfigurationType>Application</ConfigurationType>
-+	<ConfigurationType>StaticLibrary</ConfigurationType>
--   <CharacterSet>MultiByte</CharacterSet>
-+	<CharacterSet>Unicode</CharacterSet>
-</PropertyGroup>
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
--	<ConfigurationType>Application</ConfigurationType>
-+	<ConfigurationType>StaticLibrary</ConfigurationType>
--   <CharacterSet>MultiByte</CharacterSet>
-+	<CharacterSet>Unicode</CharacterSet>
-</PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+-     <ConfigurationType>Application</ConfigurationType>
++     <ConfigurationType>StaticLibrary</ConfigurationType>
+-     <CharacterSet>MultiByte</CharacterSet>
++     <CharacterSet>Unicode</CharacterSet>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+-     <ConfigurationType>Application</ConfigurationType>
++     <ConfigurationType>StaticLibrary</ConfigurationType>
+-     <CharacterSet>MultiByte</CharacterSet>
++     <CharacterSet>Unicode</CharacterSet>
+    </PropertyGroup>
 ```
 
 * C/C++
 
 ```XML
-<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-	<ClCompile>
-+		<PreprocessorDefinitions>WIN32;_LIB;_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
-+		<AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-+		<AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-	</ClCompile>
-</ItemDefinitionGroup>
-<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-	<ClCompile>
-+		<PreprocessorDefinitions>WIN32;_LIB;NDEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
-+		<AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-+		<AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
-	</ClCompile>
-</ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      <ClCompile>
++       <PreprocessorDefinitions>WIN32;_LIB;_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
++       <AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      </ClCompile>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      <ClCompile>
++       <PreprocessorDefinitions>WIN32;_LIB;NDEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
++       <AdditionalIncludeDirectories>$(ProjectDir)Import;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
++       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      </ClCompile>
+    </ItemDefinitionGroup>
 ```
 
 ```$(ProjectDir)Import```: The folder where GacUILite's files exist.
@@ -61,26 +61,26 @@ Remove all x64 Platform Configurations.
 * General
 
 ```XML
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
--   <CharacterSet>MultiByte</CharacterSet>
-+	<CharacterSet>Unicode</CharacterSet>
-</PropertyGroup>
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
--   <CharacterSet>MultiByte</CharacterSet>
-+	<CharacterSet>Unicode</CharacterSet>
-</PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+-     <CharacterSet>MultiByte</CharacterSet>
++     <CharacterSet>Unicode</CharacterSet>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+-     <CharacterSet>MultiByte</CharacterSet>
++     <CharacterSet>Unicode</CharacterSet>
+    </PropertyGroup>
 ```
 
 * VC++ Directories
 
 ```XML
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-+	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
-</PropertyGroup>
-<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-+	<IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
-+   <LinkIncremental>false</LinkIncremental>
-</PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
++     <IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
++     <IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
++     <LinkIncremental>false</LinkIncremental>
+    </PropertyGroup>
 ```
 
 ```$(ProjectDir)..\GacUILite\Import```: The folder where GacUILite's files exist.
@@ -90,23 +90,25 @@ Remove all x64 Platform Configurations.
 * C/C++
 
 ```XML
-<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-	<ClCompile>
-+		<PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
-	</ClCompile>
-	<Link>
-+		<SubSystem>Windows</SubSystem>
-	</Link>
-</ItemDefinitionGroup>
-<ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-	<ClCompile>
-+		<PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
-	</ClCompile>
-	<Link>
-+		<SubSystem>Windows</SubSystem>
-	</Link>
-</ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      <ClCompile>
++       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
+      </ClCompile>
+      <Link>
++       <SubSystem>Windows</SubSystem>
+      </Link>
+    </ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      <ClCompile>
++       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
+      </ClCompile>
+      <Link>
++       <SubSystem>Windows</SubSystem>
+      </Link>
+    </ItemDefinitionGroup>
 ```
+
+<br/>
 
 Some unused ref:
 
