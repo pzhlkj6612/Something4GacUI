@@ -110,6 +110,6 @@ Remove all x64 Platform Configurations.
 
 <br/>
 
-Some unused ref:
+### Ref
 
-* [VC项目配置基础 - CSDN博客](https://blog.csdn.net/phunxm/article/details/5082488)
+* [VC项目配置基础 - CSDN博客](https://blog.csdn.net/phunxm/article/details/5082488)(unused)
