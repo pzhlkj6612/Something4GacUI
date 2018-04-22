@@ -1,6 +1,6 @@
 ## GacGen and PowerShell Instructions
 
-This is just a configuration that works for me.
+This is a configuration that just works for me.
 
 <br/>
 
