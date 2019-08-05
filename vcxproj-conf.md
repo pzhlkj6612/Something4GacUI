@@ -12,7 +12,7 @@ Remove all x64 Platform Configurations.
 
 * General
 
-```XML
+```diff
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
 -     <ConfigurationType>Application</ConfigurationType>
 +     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -29,7 +29,7 @@ Remove all x64 Platform Configurations.
 
 * C/C++
 
-```XML
+```diff
     <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       <ClCompile>
 +       <PreprocessorDefinitions>WIN32;_LIB;_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
@@ -60,7 +60,7 @@ Remove all x64 Platform Configurations.
 
 * General
 
-```XML
+```diff
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
 -     <CharacterSet>MultiByte</CharacterSet>
 +     <CharacterSet>Unicode</CharacterSet>
@@ -73,7 +73,7 @@ Remove all x64 Platform Configurations.
 
 * VC++ Directories
 
-```XML
+```diff
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
 +     <IncludePath>$(ProjectDir)..\GacUILite\Import;$(VC_IncludePath)</IncludePath>
     </PropertyGroup>
@@ -89,7 +89,7 @@ Remove all x64 Platform Configurations.
 
 * C/C++
 
-```XML
+```diff
     <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       <ClCompile>
 +       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions);VCZH_DEBUG_NO_REFLECTION</PreprocessorDefinitions>
